@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "django-texo"
+version = "0.1.0"
+description = "Golden Raspberry Awards"
+authors = ["ericopieri <erico.pieri@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^4.2.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
