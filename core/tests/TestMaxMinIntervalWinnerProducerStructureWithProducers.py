@@ -6,7 +6,7 @@ from core.models import Producer, Movie
 
 class TestMaxMinIntervalWinnerProducerStructureWithProducers(APITestCase):
     def setUp(self):
-        self.original_filter = Producer.objects.all
+        self.original_producer_all = Producer.objects.all
 
         producer1, producer2, producer3 = (
             MagicMock(spec=Producer, id=1, name="Producer 1"),
@@ -65,7 +65,7 @@ class TestMaxMinIntervalWinnerProducerStructureWithProducers(APITestCase):
         )
 
     def tearDown(self):
-        Producer.objects.all = self.original_filter
+        Producer.objects.all = self.original_producer_all
 
     def test_maxminwinnerinterval_data_structure(self):
         response = self.client.get("/api/maxminwinnerinterval/")
