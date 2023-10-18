@@ -79,7 +79,7 @@ WSGI_APPLICATION = "golden_raspberry_awards.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
+        "NAME": "db_django_texo",
     }
 }
 

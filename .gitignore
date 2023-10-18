@@ -5,6 +5,8 @@
 
 .vscode/
 
+db_django_texo
+
 ### Django ###
 *.log
 *.pot
