@@ -4,11 +4,15 @@ from core.models import Movie, Studio, Producer
 
 import csv
 
+from django.core.management import call_command
+
 
 class Command(BaseCommand):
     help = "Dump data from movielist.csv"
 
     def handle(self, *args, **kwargs):
+        call_command("migrate")
+
         with open("movielist.csv", "r", encoding="utf-8") as file:
             reader = csv.DictReader(file, delimiter=";")
             for movie_data in reader:
