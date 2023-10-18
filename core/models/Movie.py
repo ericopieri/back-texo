@@ -5,7 +5,8 @@ from core.models.Producer import Producer
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=255, blank=False, null=False, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255, blank=False, null=False, unique=True)
     year = models.IntegerField(blank=False, null=False)
     winner = models.BooleanField(blank=False, null=False, default=False)
     studios = models.ManyToManyField(Studio, related_name="movies")
