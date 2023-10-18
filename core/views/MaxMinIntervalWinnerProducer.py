@@ -9,7 +9,7 @@ class MaxMinIntervalWinnerProducerView(APIView):
     def get(self, request, format=None):
         producers = Producer.objects.all()
 
-        if producers.count() == 0:
+        if len(producers) == 0:
             return Response(
                 {"mensagem": "Nenhum produtor encontrado"},
                 status=status.HTTP_404_NOT_FOUND,
