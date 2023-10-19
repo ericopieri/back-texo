@@ -19,7 +19,7 @@ Comandos designados à instalação dos pacotes requeridos do projeto, criação
 
 ```
 cd django_texo
-poetry config settings.virtualenvs.in-project true
+poetry config virtualenvs.in-project true
 poetry install
 poetry shell
 ```
