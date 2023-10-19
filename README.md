@@ -43,7 +43,15 @@ O comando `dump_movie_data` irá percorrer o csv dos filmes requeridos para a ap
 poetry run python manage.py dump_movie_data
 ```
 
-## Passo 5: Rodando os testes de integração
+## Passo 5: Subindo a aplicação! Voilà!
+
+Rode o comando para subir a aplicação. [Acesse aqui!](http://localhost:8000/)
+
+```
+poetry run python manage.py runserver
+```
+
+## Passo 6: Rodando os testes de integração
 
 Os dados do testes foram mockados.
 
@@ -51,7 +59,7 @@ Os dados do testes foram mockados.
 poetry run python manage.py test
 ```
 
-## Passo 6: Acesso ao endpoint da proposta
+## Passo 7: Acesso ao endpoint da proposta
 
 **/api/maxminwinnerinterval/** - Esse endpoint retorna, em um conjunto de dados json, o produtor com maior intervalo entre dois prêmios consecutivos, e o que
 obteve dois prêmios mais rápido.
