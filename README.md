@@ -26,9 +26,9 @@ poetry shell
 
 > **OBS:** É importante que, apartir daqui, todos os comandos rodados internamente no django sejam rodados com a virtual env ativada! (`poetry shell`)
 
-## Passo 3: Migrando o banco e fazendo dump dos dados
+## Passo 3: Migrando os bancos
 
-Rode os dois migrates em sequência, isso fará com que os arquivos de banco sejam criados.
+Rode os dois migrates em sequência, isso fará com que os arquivos de banco (default e test) sejam criados.
 
 ```
 poetry run python manage.py migrate
@@ -58,7 +58,7 @@ obteve dois prêmios mais rápido.
 
 Endpoint proposto pelo desafio.
 
-## Abaixo um guia de como utilizar os endpoints
+## Abaixo um guia de como utilizar os outros endpoints contidos na aplicação
 
 **/api/movies/** - Lista de todos os filmes e criação de novos filmes (GET e POST)
 **/api/movies/\<pk\>/** - Detalhes de um filme específico, atualização ou remoção do mesmo (substitua <pk> pelo ID do filme) (GET, PUT E DELETE)
