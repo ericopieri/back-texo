@@ -28,7 +28,7 @@ class Producer(models.Model):
 
         orderned_win_intervals = sorted(win_intervals, key=lambda x: x["interval"])
 
-        return max(orderned_win_intervals)
+        return orderned_win_intervals[-1]
 
     def __str__(self):
         return self.name
