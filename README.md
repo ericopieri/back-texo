@@ -24,7 +24,7 @@ poetry install
 poetry shell
 ```
 
-> **OBS:** Todos os comandos abaixo devem ser rodados com a
+> **OBS:** É importante que, apartir daqui, todos os comandos rodados internamente no django sejam rodados com a virtual env ativada! (`poetry shell`)
 
 ## Passo 3: Migrando o banco e fazendo dump dos dados
 
