@@ -18,7 +18,7 @@ git clone https://github.com/ericopieri/django_texo.git
 Comandos designados à instalação dos pacotes requeridos do projeto, criação e ativação da virtual env para rodar o projeto.
 
 ```
-cd nome_do_repositorio
+cd django_texo
 poetry config settings.virtualenvs.in-project true
 poetry install
 poetry shell
