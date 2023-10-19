@@ -40,7 +40,7 @@ class TestMaxMinIntervalWinnerProducerStructureWithProducers(APITestCase):
             ]
         )
 
-        producer1.calc_win_interval = MagicMock(
+        producer1.calc_max_win_interval = MagicMock(
             return_value={
                 "followingWin": 2002,
                 "previousWin": 2001,
@@ -48,7 +48,15 @@ class TestMaxMinIntervalWinnerProducerStructureWithProducers(APITestCase):
             }
         )
 
-        producer2.calc_win_interval = MagicMock(
+        producer1.calc_min_win_interval = MagicMock(
+            return_value={
+                "followingWin": 2002,
+                "previousWin": 2001,
+                "interval": 1,
+            }
+        )
+
+        producer2.calc_max_win_interval = MagicMock(
             return_value={
                 "followingWin": 2005,
                 "previousWin": 1988,
@@ -56,11 +64,27 @@ class TestMaxMinIntervalWinnerProducerStructureWithProducers(APITestCase):
             }
         )
 
-        producer3.calc_win_interval = MagicMock(
+        producer2.calc_min_win_interval = MagicMock(
+            return_value={
+                "followingWin": 2020,
+                "previousWin": 2005,
+                "interval": 15,
+            }
+        )
+
+        producer3.calc_max_win_interval = MagicMock(
             return_value={
                 "followingWin": 2003,
                 "previousWin": 1999,
                 "interval": 4,
+            }
+        )
+
+        producer3.calc_min_win_interval = MagicMock(
+            return_value={
+                "followingWin": 2004,
+                "previousWin": 2003,
+                "interval": 1,
             }
         )
 

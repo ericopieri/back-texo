@@ -18,26 +18,29 @@ class MaxMinIntervalWinnerProducerView(APIView):
         max_interval_winners_producer = []
         min_interval_winners_producer = []
 
-        max_interval = -1
-        min_interval = float("inf")
+        max_current_interval = -1
+        min_current_interval = float("inf")
 
         for producer in producers:
-            interval_data = producer.calc_win_interval()
-            interval = interval_data.get("interval")
+            max_interval_data = producer.calc_max_win_interval()
+            max_interval = max_interval_data.get("interval")
 
-            if interval is not None:
-                if interval > max_interval:
-                    max_interval = interval
+            min_interval_data = producer.calc_min_win_interval()
+            min_interval = min_interval_data.get("interval")
+
+            if max_interval is not None and min_interval is not None:
+                if max_interval > max_current_interval:
+                    max_current_interval = max_interval
                     max_interval_winners_producer = [producer]
                 else:
-                    if interval == max_interval:
+                    if max_interval == max_current_interval:
                         max_interval_winners_producer.append(producer)
 
-                if interval < min_interval:
-                    min_interval = interval
+                if min_interval < min_current_interval:
+                    min_current_interval = min_interval
                     min_interval_winners_producer = [producer]
                 else:
-                    if interval == min_interval:
+                    if min_interval == min_current_interval:
                         min_interval_winners_producer.append(producer)
 
         return Response(
@@ -45,14 +48,14 @@ class MaxMinIntervalWinnerProducerView(APIView):
                 "max": [
                     {
                         "producer": ProducerSerializer(winner).data.get("name"),
-                        **winner.calc_win_interval(),
+                        **winner.calc_max_win_interval(),
                     }
                     for winner in max_interval_winners_producer
                 ],
                 "min": [
                     {
                         "producer": ProducerSerializer(winner).data.get("name"),
-                        **winner.calc_win_interval(),
+                        **winner.calc_min_win_interval(),
                     }
                     for winner in min_interval_winners_producer
                 ],
