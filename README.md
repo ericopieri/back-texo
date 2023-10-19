@@ -10,7 +10,7 @@
 ### Passo 1: Clonar o Repositório do projeto
 
 ```bash
-git clone https://github.com/seu_usuario/nome_do_repositorio.git
+git clone https://github.com/ericopieri/django_texo.git
 ```
 
 ### Passo 2: Instalação dos pacotes e criação da virtual env
