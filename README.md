@@ -1,21 +1,21 @@
-## Guia de Instalação e Configuração
+## Installation and Configuration Guide
 
-### Pré-requisitos
+### Prerequisites
 
-- Python 3.x instalado
+- Python 3.x installed
 - Poetry
 
-> OBS: [Instação poetry](https://python-poetry.org/docs/#installation)
+> Note: [Poetry Installation](https://python-poetry.org/docs/#installation)
 
-### Passo 1: Clonar o Repositório do projeto
+### Step 1: Clone the Project Repository
 
 ```bash
 git clone https://github.com/ericopieri/django_texo.git
 ```
 
-### Passo 2: Instalação dos pacotes e criação da virtual env
+### Step 2: Package Installation and Virtual Environment Creation
 
-Comandos designados à instalação dos pacotes requeridos do projeto, criação e ativação da virtual env para rodar o projeto.
+Commands designated for installing required project packages, creating and activating the virtual environment to run the project.
 
 ```
 cd django_texo
@@ -24,54 +24,54 @@ poetry install
 poetry shell
 ```
 
-> **OBS:** É importante que, apartir daqui, todos os comandos rodados internamente no django sejam rodados com a virtual env ativada! (`poetry shell`)
+> **Note:** It's important that all commands run internally in Django from here onwards are executed with the virtual environment activated (`poetry shell`).
 
-## Passo 3: Migrando os bancos
+## Step 3: Migrating Databases
 
-Rode os dois migrates em sequência, isso fará com que os arquivos de banco (default e test) sejam criados.
+Run both migrations sequentially, which will create database files (default and test).
 
 ```
 poetry run python manage.py migrate
 poetry run python manage.py migrate --database=test
 ```
 
-## Passo 4: Fazendo dump dos dados contidos no csv para funcionamento da aplicação
+## Step 4: Dumping Data from CSV for Application Functionality
 
-O comando `dump_movie_data` irá percorrer o csv dos filmes requeridos para a aplicação e adicionar os itens ao banco de dados.
+The `dump_movie_data` command will parse the required movie CSV and add items to the database.
 
 ```
 poetry run python manage.py dump_movie_data
 ```
 
-## Passo 5: Subindo a aplicação! Voilà!
+## Step 5: Running the Application! Voilà!
 
-Rode o comando para subir a aplicação. [Acesse aqui!](http://localhost:8000/)
+Run the command to start the application. [Access here!](http://localhost:8000/)
 
 ```
 poetry run python manage.py runserver
 ```
 
-## Passo 6: Rodando os testes de integração
+## Step 6: Running Integration Tests
 
-Os dados do testes foram mockados.
+Test data has been mocked.
 
 ```
 poetry run python manage.py test
 ```
 
-## Passo 7: Acesso ao endpoint da proposta
+## Step 7: Accessing the Proposal Endpoint
 
-**/api/maxminwinnerinterval/** - Esse endpoint retorna, em um conjunto de dados json, o produtor com maior intervalo entre dois prêmios consecutivos, e o que
-obteve dois prêmios mais rápido.
+**/api/maxminwinnerinterval/** - This endpoint returns, in a JSON data set, the producer with the longest interval between two consecutive awards, and the one who
+obtained two awards the fastest.
 
-Endpoint proposto pelo desafio.
+Endpoint proposed by the challenge.
 
-## Abaixo um guia de como utilizar os outros endpoints contidos na aplicação
+## Below is a guide on how to use the other endpoints contained in the application
 
-**/api/movies/** - Lista de todos os filmes e criação de novos filmes (GET e POST)
-**/api/movies/\<pk\>/** - Detalhes de um filme específico, atualização ou remoção do mesmo (substitua <pk> pelo ID do filme) (GET, PUT E DELETE)
+**/api/movies/** - List of all movies and creation of new movies (GET and POST)
+**/api/movies/\<pk\>/** - Details of a specific movie, updating or removing it (replace <pk> with the movie ID) (GET, PUT, and DELETE)
 
-**Estrutura para cadastro ou atualização de filmes:**<br>
+**Structure for adding or updating movies:**<br>
 
 ```
 {
@@ -83,10 +83,10 @@ Endpoint proposto pelo desafio.
 }
 ```
 
-/api/producers/ - Lista de todos os produtores e criação de novos produtores (GET E POST)
-/api/producers/<pk>/ - Detalhes de um produtor específico, atualização ou remoção do mesmo (substitua <pk> pelo ID do produtor) (GET, PUT E DELETE)
+/api/producers/ - List of all producers and creation of new producers (GET and POST)
+/api/producers/<pk>/ - Details of a specific producer, updating or removing it (replace <pk> with the producer ID) (GET, PUT, and DELETE)
 
-**Estrutura para cadastro ou atualização de produtores:**<br>
+**Structure for adding or updating producers:**<br>
 
 ```
 {
@@ -94,13 +94,13 @@ Endpoint proposto pelo desafio.
 }
 ```
 
-/api/studios/ - Lista de todos os estúdios e criação de novos estudios
-/api/studios/<pk>/ - Detalhes de um estúdio específico, atualização e remoção do mesmo (substitua <pk> pelo ID do estúdio) (GET, PUT E DELETE)
+/api/studios/ - List of all studios and creation of new studios
+/api/studios/<pk>/ - Details of a specific studio, updating or removing it (replace <pk> with the studio ID) (GET, PUT, and DELETE)
 
-**Estrutura para cadastro ou atualização de produtores:**<br>
+**Structure for adding or updating studios:**<br>
 
 ```
 {
-    "name": "Producer Name"
+    "name": "Studio Name"
 }
 ```
